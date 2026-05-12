@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>José Antonio Ochagavia — Builder & AI Developer</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --bg2: #161b27;
+      --bg3: #1e2537;
+      --border: #2a3350;
+      --blue: #4f8ef7;
+      --blue2: #7cb3ff;
+      --green: #3ecf8e;
+      --purple: #a78bfa;
+      --orange: #f97316;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --card-hover: #232d45;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,17,23,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2rem; height: 60px;
+    }
+    nav .logo { font-weight: 700; font-size: 1rem; color: var(--blue); letter-spacing: -0.5px; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+    section { max-width: 1080px; margin: 0 auto; padding: 5rem 2rem; }
+    .hero { padding-top: 6rem; padding-bottom: 5rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,142,247,0.12); border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 999px; padding: 4px 14px; font-size: 0.8rem; color: var(--blue2);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; }
+    h1 span { color: var(--blue); }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin-bottom: 2rem; }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all .2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue2); transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--blue); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+    .section-desc { color: var(--muted); max-width: 540px; margin-bottom: 3rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem; }
+    .about-text p strong { color: var(--text); }
+    .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .about-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .about-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .about-card-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 2px; }
+    .about-card-desc { font-size: 0.8rem; color: var(--muted); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: all .25s; text-decoration: none; color: inherit; }
+    .project-card:hover { background: var(--card-hover); border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(79,142,247,0.1); }
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .project-icon { font-size: 2rem; }
+    .project-links { display: flex; gap: 8px; }
+    .project-link { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: var(--muted); text-decoration: none; background: var(--bg3); border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; transition: all .2s; }
+    .project-link:hover { color: var(--blue); border-color: var(--blue); }
+    .project-title { font-size: 1rem; font-weight: 700; }
+    .project-sub { font-size: 0.78rem; color: var(--blue2); font-weight: 600; margin-top: 2px; }
+    .project-desc { font-size: 0.85rem; color: var(--muted); flex: 1; }
+    .project-impact { background: rgba(62,207,142,0.08); border: 1px solid rgba(62,207,142,0.2); border-radius: 8px; padding: 8px 12px; font-size: 0.78rem; color: var(--green); font-weight: 600; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tag { font-size: 0.72rem; padding: 3px 9px; border-radius: 6px; font-weight: 600; background: var(--bg3); border: 1px solid var(--border); color: var(--muted); }
+    .tag.py { background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.3); color: var(--blue2); }
+    .tag.ts { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.3); color: var(--purple); }
+    .tag.ai { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.3); color: var(--yellow); }
+    .tag.cloud { background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.3); color: var(--orange); }
+    .tag.ml { background: rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.3); color: var(--red); }
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+    .stack-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .stack-cat { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .stack-cat.lang { color: var(--blue); }
+    .stack-cat.ai { color: var(--yellow); }
+    .stack-cat.back { color: var(--purple); }
+    .stack-cat.front { color: var(--green); }
+    .stack-cat.data { color: var(--orange); }
+    .stack-cat.cloud { color: var(--red); }
+    .stack-cat.biz { color: var(--muted); }
+    .stack-items { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-item { font-size: 0.78rem; padding: 4px 10px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); color: var(--text); font-weight: 500; }
+    .contact-box { background: linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(167,139,250,0.06) 100%); border: 1px solid rgba(79,142,247,0.2); border-radius: 20px; padding: 3rem; text-align: center; }
+    .contact-box h2 { margin-bottom: 0.75rem; }
+    .contact-box p { color: var(--muted); margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    @media (max-width: 700px) { nav ul { display: none; } .about-grid { grid-template-columns: 1fr; } .hero-stats { gap: 1.5rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="logo">jaochagavia</div>
+  <ul>
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-badge"><span></span> Disponible para proyectos</div>
+  <h1>José Antonio<br/><span>Ochagavia Gana</span></h1>
+  <p class="hero-sub">Builder & AI Developer. Construyo sistemas end-to-end que eliminan trabajo manual y generan impacto real: automatización de procesos, agentes IA, apps a medida y modelos de datos.</p>
+  <div class="hero-links">
+    <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+    <a href="https://github.com/joseantonioochagavia" target="_blank" class="btn btn-secondary">GitHub</a>
+    <a href="https://linkedin.com/in/joseantonioochagavia" target="_blank" class="btn btn-secondary">LinkedIn</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Proyectos end-to-end</div></div>
+    <div class="stat"><div class="stat-num">3x</div><div class="stat-label">EBITDA triplicado en Agroberries</div></div>
+    <div class="stat"><div class="stat-num">60%</div><div class="stat-label">Reducción tiempo manual</div></div>
+    <div class="stat"><div class="stat-num">3 años</div><div class="stat-label">Finanzas + tecnología</div></div>
+  </div>
+</section>
+<hr class="divider"/>
+<section id="about">
+  <div class="section-label">Sobre mí</div>
+  <h2>Negocio + Código = Impacto</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Durante 3 años fui Controller en <strong>Agroberries</strong>, empresa líder global en frutos rojos. No solo gestioné el control financiero — construí las herramientas que el negocio necesitaba: pipelines ETL, modelos de margen, automatización del cierre mensual y dashboards para directorio.</p>
+      <p>Junto con mi equipo, <strong>logramos triplicar el EBITDA de Chile</strong>. Mi rol fue central en la optimización de operaciones y los sistemas de información que lo hicieron posible.</p>
+      <p>Hoy combino esa base de negocio con capacidad técnica real: construyo <strong>agentes IA, aplicaciones web y sistemas de automatización end-to-end</strong> con impacto medible.</p>
+      <p>Trabajo de manera independiente con empresas que quieren pasar de detectar oportunidades a ejecutarlas con tecnología.</p>
+    </div>
+    <div class="about-cards">
+      <div class="about-card"><div class="about-card-icon">⚙️</div><div><div class="about-card-title">Automatización de Procesos</div><div class="about-card-desc">Reemplazo flujos manuales repetitivos con sistemas Python que corren solos.</div></div></div>
+      <div class="about-card"><div class="about-card-icon">🤖</div><div><div class="about-card-title">Agentes & Pipelines IA</div><div class="about-card-desc">Diseño e implemento agentes multi-etapa con OpenAI, LangChain o Claude API.</div></div></div>
+      <div class="about-card"><div class="about-card-icon">🚀</div><div><div class="about-card-title">Apps a medida</div><div class="about-card-desc">Apps web completas (Next.js + TypeScript) o herramientas internas (FastAPI + Streamlit).</div></div></div>
+      <div class="about-card"><div class="about-card-icon">📊</div><div><div class="about-card-title">Datos & Machine Learning</div><div class="about-card-desc">Pipelines de datos, modelos de decisión, forecasting y computer vision aplicados a problemas reales.</div></div></div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+<section id="projects">
+  <div class="section-label">Proyectos</div>
+  <h2>Lo que he construido</h2>
+  <p class="section-desc">Proyectos end-to-end: desde la lógica de negocio hasta el código en producción.</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">🗂️</div><div class="project-links"><span class="project-link">🔒 Privado</span></div></div>
+      <div><div class="project-title">CloseOps</div><div class="project-sub">Financial Automation Platform</div></div>
+      <p class="project-desc">Sistema modular para automatizar el cierre financiero mensual: asignación de costos, provisiones, liquidaciones y reconciliaciones. Genera el dataset maestro de reportes sin intervención manual.</p>
+      <div class="project-impact">⚡ Días de trabajo manual → horas</div>
+      <div class="tag-row"><span class="tag py">Python</span><span class="tag py">FastAPI</span><span class="tag py">Streamlit</span><span class="tag py">pandas</span><span class="tag py">openpyxl</span></div>
+    </div>
+    <a href="https://github.com/joseantonioochagavia/ai_assistants_lab" target="_blank" class="project-card">
+      <div class="project-header"><div class="project-icon">🧠</div><div class="project-links"><span class="project-link">⭐ GitHub</span></div></div>
+      <div><div class="project-title">AI Assistants Lab</div><div class="project-sub">Multi-stage AI Agent Pipelines</div></div>
+      <p class="project-desc">Laboratorio de agentes IA modulares. Pipeline principal: transcripción de reuniones (GPT-4o) → extracción estructurada → deduplicación semántica → enriquecimiento iterativo → export a Google Sheets.</p>
+      <div class="tag-row"><span class="tag py">Python</span><span class="tag ai">OpenAI API</span><span class="tag ai">GPT-4o</span><span class="tag py">Google Sheets API</span></div>
+    </a>
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">💬</div><div class="project-links"><span class="project-link">🔒 Privado</span></div></div>
+      <div><div class="project-title">Uni AI Platform</div><div class="project-sub">Multi-Model Web Application</div></div>
+      <p class="project-desc">Plataforma AI full-stack con soporte multi-proveedor (Anthropic, OpenAI, Google, Moonshot Kimi), auth, historial de conversaciones, comparación de modelos en paralelo y tracking de costos por proveedor.</p>
+      <div class="tag-row"><span class="tag ts">TypeScript</span><span class="tag ts">Next.js 16</span><span class="tag ai">AI SDK v6</span><span class="tag py">SQLite</span><span class="tag cloud">Docker</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">🌱</div><div class="project-links"><span class="project-link">🔒 Privado</span></div></div>
+      <div><div class="project-title">ResiliAgro</div><div class="project-sub">Agricultural Intelligence Platform</div></div>
+      <p class="project-desc">Plataforma de inteligencia de mercado para el sector fruticultor chileno. Reconstrucción de series de tiempo de superficie plantada (2000–2024) combinando datos CIREN/ODEPA con clasificador supervisado sobre imágenes Sentinel-2.</p>
+      <div class="tag-row"><span class="tag py">Python</span><span class="tag ml">Sentinel-2</span><span class="tag ml">scikit-learn</span><span class="tag py">Jupyter</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">☕</div><div class="project-links"><span class="project-link">🔒 Privado</span></div></div>
+      <div><div class="project-title">Coffee Disease Detection</div><div class="project-sub">Computer Vision · Le Wagon Capstone</div></div>
+      <p class="project-desc">Sistema end-to-end de detección de enfermedades en plantas de café usando Transfer Learning (VGG16) y YOLOv8, con foco en alto recall para minimizar falsos negativos. Deployado en GCP Cloud Run.</p>
+      <div class="tag-row"><span class="tag ml">TensorFlow</span><span class="tag ml">YOLOv8</span><span class="tag py">FastAPI</span><span class="tag cloud">GCP Cloud Run</span><span class="tag py">Streamlit</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">🫐</div><div class="project-links"><span class="project-link">🔒 Privado</span></div></div>
+      <div><div class="project-title">Smarter Harvest Allocation</div><div class="project-sub">ML Decision Support System</div></div>
+      <p class="project-desc">Sistema de decisión para optimizar la asignación de cosecha según márgenes unitarios: análisis de break-even entre mercados (Fresh vs IQF) + forecasting de precios con series de tiempo.</p>
+      <div class="tag-row"><span class="tag py">Python</span><span class="tag ml">Darts</span><span class="tag py">FastAPI</span><span class="tag py">pandas</span><span class="tag py">Pydantic</span></div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+<section id="stack">
+  <div class="section-label">Stack Técnico</div>
+  <h2>Herramientas que uso</h2>
+  <p class="section-desc">Stack completo desde el dato crudo hasta el producto en producción.</p>
+  <div class="stack-grid">
+    <div class="stack-card"><div class="stack-cat lang">Lenguajes</div><div class="stack-items"><span class="stack-item">Python</span><span class="stack-item">TypeScript</span><span class="stack-item">JavaScript</span><span class="stack-item">SQL</span></div></div>
+    <div class="stack-card"><div class="stack-cat ai">IA & ML</div><div class="stack-items"><span class="stack-item">OpenAI API</span><span class="stack-item">LangChain</span><span class="stack-item">Claude API</span><span class="stack-item">TensorFlow/Keras</span><span class="stack-item">scikit-learn</span><span class="stack-item">YOLOv8</span><span class="stack-item">Hugging Face</span><span class="stack-item">Darts</span><span class="stack-item">AI SDK v6</span></div></div>
+    <div class="stack-card"><div class="stack-cat back">Backend & APIs</div><div class="stack-items"><span class="stack-item">FastAPI</span><span class="stack-item">Next.js 16</span><span class="stack-item">Uvicorn</span><span class="stack-item">Drizzle ORM</span><span class="stack-item">SQLite</span><span class="stack-item">Pydantic</span></div></div>
+    <div class="stack-card"><div class="stack-cat front">Frontend & UI</div><div class="stack-items"><span class="stack-item">React</span><span class="stack-item">Streamlit</span><span class="stack-item">Tailwind CSS</span><span class="stack-item">shadcn/ui</span></div></div>
+    <div class="stack-card"><div class="stack-cat data">Data & Analytics</div><div class="stack-items"><span class="stack-item">pandas</span><span class="stack-item">numpy</span><span class="stack-item">Power BI</span><span class="stack-item">BigQuery</span><span class="stack-item">MLflow</span><span class="stack-item">openpyxl</span></div></div>
+    <div class="stack-card"><div class="stack-cat cloud">Cloud & DevOps</div><div class="stack-items"><span class="stack-item">GCP Cloud Run</span><span class="stack-item">BigQuery</span><span class="stack-item">Docker</span><span class="stack-item">GitHub Actions</span></div></div>
+    <div class="stack-card"><div class="stack-cat biz">Negocio & Finanzas</div><div class="stack-items"><span class="stack-item">SAP B1</span><span class="stack-item">Jedox</span><span class="stack-item">Control de Gestión</span><span class="stack-item">Modelamiento Financiero</span><span class="stack-item">Presupuesto & Forecast</span></div></div>
+  </div>
+</section>
+<hr class="divider"/>
+<section id="contact">
+  <div class="contact-box">
+    <div class="section-label" style="text-align:center;margin-bottom:.5rem;">Contacto</div>
+    <h2>¿Tienes un proyecto en mente?</h2>
+    <p>Trabajo con empresas que quieren pasar de detectar oportunidades a ejecutarlas con tecnología.<br/>Si quieres explorar cómo puedo ayudarte, escríbeme directo.</p>
+    <div class="contact-links">
+      <a href="mailto:jaochagavia97@gmail.com" class="btn btn-primary">✉️ jaochagavia97@gmail.com</a>
+      <a href="https://linkedin.com/in/joseantonioochagavia" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      <a href="https://github.com/joseantonioochagavia" target="_blank" class="btn btn-secondary">GitHub</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>José Antonio Ochagavia Gana · Builder & AI Developer · Santiago, Chile</p>
+</footer>
+</body>
+</html>
