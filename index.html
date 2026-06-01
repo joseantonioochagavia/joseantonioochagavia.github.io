@@ -94,8 +94,9 @@
     }
     .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: .5rem; }
     h1 span { color: var(--blue); }
+    .hero-role { font-size: 1.1rem; font-weight: 600; color: var(--blue); margin-bottom: 1rem; }
     .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin-bottom: 2rem; }
     .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
@@ -242,6 +243,7 @@
   <img class="hero-photo" src="foto.png" alt="José Antonio Ochagavia Gana" width="116" height="116" />
   <div class="hero-badge" data-i18n-badge="hero.badge"><span></span> Disponible para proyectos</div>
   <h1>José Antonio<br/><span>Ochagavia Gana</span></h1>
+  <p class="hero-role" data-i18n="hero.role">Consultor &amp; AI Builder</p>
   <p class="hero-sub" data-i18n="hero.sub">Combino estrategia de negocio y ejecución técnica: diagnostico dónde está la oportunidad de crecer o mejorar y la implemento end-to-end mediante el uso de automatización, IA y datos.</p>
   <div class="hero-links">
     <a href="#projects" class="btn btn-primary" data-i18n="hero.cta">Ver proyectos</a>
@@ -567,6 +569,7 @@
       'nav.education': 'Educación',
       'nav.contact': 'Contacto',
       'hero.badge': 'Disponible para proyectos',
+      'hero.role': 'Consultor & AI Builder',
       'hero.sub': 'Combino estrategia de negocio y ejecución técnica: diagnostico dónde está la oportunidad de crecer o mejorar y la implemento end-to-end mediante el uso de automatización, IA y datos.',
       'hero.cta': 'Ver proyectos',
       'hero.stat1': 'Proyectos end-to-end',
@@ -630,6 +633,7 @@
       'nav.education': 'Education',
       'nav.contact': 'Contact',
       'hero.badge': 'Available for projects',
+      'hero.role': 'Consultant & AI Builder',
       'hero.sub': 'I combine business strategy with technical execution: I find where the growth or improvement opportunity is and implement it end-to-end through the use of automation, AI, and data.',
       'hero.cta': 'View projects',
       'hero.stat1': 'End-to-end projects',
