@@ -490,26 +490,45 @@
       </div>
     </div>
 
-    <!-- Meeting Insight Engine -->
-    <a href="https://github.com/joseantonioochagavia/ai_assistants_lab" target="_blank" class="project-card">
+    <!-- Tech & Industry Digest -->
+    <div class="project-card">
       <div class="project-header">
-        <div class="project-icon">🧠</div>
+        <div class="project-icon">📰</div>
         <div class="project-links">
-          <span class="project-link">⭐ GitHub</span>
+          <span class="project-link" title="Repositorio privado">🔒 <span data-i18n="project.private">Privado</span></span>
         </div>
       </div>
       <div>
-        <div class="project-title">Meeting Insight Engine</div>
-        <div class="project-sub" data-i18n="project.meeting.sub">Audio → Transcripción → Insights → Google Sheets</div>
+        <div class="project-title">Tech & Industry Digest</div>
+        <div class="project-sub" data-i18n="project.techdigest.sub">Tecnología, Industria y Tendencias — Curado por IA</div>
       </div>
-      <p class="project-desc" data-i18n="project.meeting.desc">Convierte grabaciones de reuniones en insights de negocio estructurados y exportados a Google Sheets, sin intervención manual.</p>
+      <p class="project-desc" data-i18n="project.techdigest.desc">Digest semanal automatizado que lee newsletters de tecnología, industria y tendencias de mercado, aplica curación editorial con Claude AI y publica un briefing en Markdown con foco en oportunidades para constructores Latinoamericanos. Corre solo con GitHub Actions.</p>
+      <div class="tag-row">
+        <span class="tag py">Python</span>
+        <span class="tag ai">Claude API</span>
+        <span class="tag cloud">GitHub Actions</span>
+      </div>
+    </div>
+
+    <!-- Meeting Assistant -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🎙️</div>
+        <div class="project-links">
+          <span class="project-link" title="Repositorio privado">🔒 <span data-i18n="project.private">Privado</span></span>
+        </div>
+      </div>
+      <div>
+        <div class="project-title">Meeting Assistant</div>
+        <div class="project-sub" data-i18n="project.meeting-assistant.sub">Audio → Transcripción → Resumen → Acción</div>
+      </div>
+      <p class="project-desc" data-i18n="project.meeting-assistant.desc">Convierte grabaciones de reuniones en transcripciones y resúmenes automáticos: qué se decidió, qué hay que hacer y temas clave. Solo necesitas tu propia API key, sin subir tus datos a ningún servicio externo.</p>
       <div class="tag-row">
         <span class="tag py">Python</span>
         <span class="tag ai">OpenAI API</span>
-        <span class="tag ai">GPT-4o</span>
-        <span class="tag py">Google Sheets API</span>
+        <span class="tag ml">GPT-4o</span>
       </div>
-    </a>
+    </div>
 
     </div>
   </div>
@@ -605,8 +624,10 @@
       'project.private': 'Privado',
       'project.closeops.desc': 'Sistema modular para automatizar el cierre financiero mensual: asignación de costos, provisiones, liquidaciones y reconciliaciones.',
       'project.closeops.impact': '⚡ Días de trabajo manual → horas',
-      'project.meeting.sub': 'Audio → Transcripción → Insights → Google Sheets',
-      'project.meeting.desc': 'Convierte grabaciones de reuniones en insights de negocio estructurados y exportados a Google Sheets, sin intervención manual.',
+      'project.techdigest.sub': 'Tecnología, Industria y Tendencias — Curado por IA',
+      'project.techdigest.desc': 'Digest semanal automatizado que lee newsletters de tecnología, industria y tendencias de mercado, aplica curación editorial con Claude AI y publica un briefing en Markdown con foco en oportunidades para constructores Latinoamericanos. Corre solo con GitHub Actions.',
+      'project.meeting-assistant.sub': 'Audio → Transcripción → Resumen → Acción',
+      'project.meeting-assistant.desc': 'Convierte grabaciones de reuniones en transcripciones y resúmenes automáticos: qué se decidió, qué hay que hacer y temas clave. Solo necesitas tu propia API key, sin subir tus datos a ningún servicio externo.',
       'project.uni.desc': 'Plataforma AI full-stack con soporte multi-proveedor (Anthropic, OpenAI, Google, Moonshot Kimi), auth, historial de conversaciones, comparación de modelos en paralelo y tracking de costos por proveedor.',
       'project.resiliagro.desc': 'Plataforma de inteligencia de mercado para el sector fruticultor chileno. Reconstrucción de series de tiempo de superficie plantada (2000–2024) combinando datos CIREN/ODEPA con clasificador supervisado sobre imágenes satelitales.',
       'project.coffee.desc': 'Detecta enfermedades en plantas de café a partir de una foto. Interfaz simple, resultado inmediato - Diseñada para que cualquier productor pueda usarla desde el campo.',
@@ -669,8 +690,10 @@
       'project.private': 'Private',
       'project.closeops.desc': 'Modular system to automate the monthly financial close: cost allocation, provisions, liquidations, and reconciliations.',
       'project.closeops.impact': '⚡ Days of manual work → hours',
-      'project.meeting.sub': 'Audio → Transcription → Insights → Google Sheets',
-      'project.meeting.desc': 'Turns meeting recordings into structured business insights automatically exported to Google Sheets, with no manual intervention.',
+      'project.techdigest.sub': 'Technology, Industry & Trends — AI-Curated',
+      'project.techdigest.desc': 'Automated weekly digest that reads technology, industry, and market-trend newsletters, applies editorial curation via Claude AI, and publishes a Markdown briefing focused on opportunities for Latin American builders. Runs unattended on GitHub Actions.',
+      'project.meeting-assistant.sub': 'Audio → Transcription → Summary → Action',
+      'project.meeting-assistant.desc': 'Turns meeting recordings into automatic transcripts and summaries: decisions made, action items, and key topics. Just bring your own API key — your data never leaves your machine.',
       'project.uni.desc': 'Full-stack AI platform with multi-provider support (Anthropic, OpenAI, Google, Moonshot Kimi), auth, conversation history, parallel model comparison, and per-provider cost tracking.',
       'project.resiliagro.desc': 'Market intelligence platform for Chile\'s fruit-growing sector. Reconstructs time series of planted area (2000–2024) by combining CIREN/ODEPA data with a supervised classifier on satellite imagery.',
       'project.coffee.desc': 'Detects coffee plant diseases from a single photo. Simple interface, instant result — designed so any farmer can use it from the field.',
