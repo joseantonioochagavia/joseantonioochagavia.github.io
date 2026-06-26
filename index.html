@@ -55,7 +55,11 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 2rem; height: 60px;
     }
-    nav .logo { font-weight: 700; font-size: 1rem; color: var(--blue2); letter-spacing: -0.5px; }
+    nav .logo {
+      font-weight: 700; font-size: 1rem; letter-spacing: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--blue2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color .2s; }
     nav a:hover { color: var(--blue); }
@@ -227,7 +231,7 @@
 <body>
 
 <nav>
-  <div class="logo">jaochagavia</div>
+  <div class="logo">OPPTUS</div>
   <ul>
     <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
     <li><a href="#process" data-i18n="nav.process">Cómo trabajo</a></li>
@@ -576,7 +580,7 @@
 </section>
 
 <footer>
-  <p>José Antonio Ochagavia Gana · Consultor & AI Builder · Santiago, Chile</p>
+  <p>© 2026 OPPTUS · José Antonio Ochagavia · Consultor & AI Builder · Santiago, Chile</p>
 </footer>
 
 <script>
